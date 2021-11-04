@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<style type="text/css">
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 1em;
+        background-color: rgb(39, 36, 59);
+        color: white;
+    }
+
+    .info {
+        padding: 1em;
+        margin: 1em;
+        border-style: solid;
+        border-width: .25em;
+    }
+
+    #disclaimer {
+        padding: 1em;
+        margin: 3em;
+        border-style: solid;
+        border-width: .25em;
+        border-color: red;
+        font-weight: bold;
+    }
+    
+    #button {
+        text-align: center;
+        margin: 2em;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>User Agent Information</h3>
+    <br>
+    <div class="info">
+        <p>Platform: <strong><span id="platform"></strong></span></p>
+        <p>Version: <strong><span id="version"></strong></span></p>
+        <p>Online?: <strong><span id="online"></strong></span></p>
+</body>
+</div>
+<br>
+<div class="info">
+    <p>Full User Agent: <strong><span id="agent"></strong></span></p>
+</div>
+
+<div id="button">
+    <button onclick="refresh()">Refresh this information</button>
+</div>
+<div id="disclaimer">
+   <p style="text-align: center;">All of the information contained on this webpage was easily accessed using the navigator property of your browser. This property can be easily used and inserted in any script, making it extremely easy to track with. </p>
+   <br>
+   <p style="font-size: .95em;">Last refreshed at: <span id="date"></span></p>
+</div>
+
+</body>
+<script>
+    var date = new Date();
+    
+    refresh();
+    function refresh() {
+    var date = new Date();
+    console.log('refreshing');
+    document.getElementById('platform').innerHTML = navigator.platform;
+    document.getElementById('version').innerHTML = navigator.appVersion;
+    document.getElementById('online').innerHTML = navigator.onLine;
+    document.getElementById('agent').innerHTML = navigator.userAgent;
+    document.getElementById('date').innerHTML = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    }
+</script>
+</body>
+
+
+</html>
